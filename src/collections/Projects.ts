@@ -48,6 +48,32 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'logo',
+      type: 'upload',
+      relationTo: 'media',
+    },
+    {
+      name: 'completedDate',
+      type: 'text',
+      admin: {
+        description: 'e.g. "2021"',
+      },
+    },
+    {
+      name: 'size',
+      type: 'text',
+      admin: {
+        description: 'e.g. "63,000 Sq. Ft."',
+      },
+    },
+    {
+      name: 'projectType',
+      type: 'text',
+      admin: {
+        description: 'e.g. "Redevelopment"',
+      },
+    },
+    {
       name: 'showSidePanel',
       type: 'checkbox',
       defaultValue: false,
@@ -55,6 +81,37 @@ export const Projects: CollectionConfig = {
     {
       name: 'description',
       type: 'richText',
+    },
+    {
+      name: 'awards',
+      type: 'array',
+      fields: [
+        {
+          name: 'awardName',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'link',
+          type: 'text',
+        },
+      ],
+    },
+    {
+      name: 'media',
+      type: 'array',
+      fields: [
+        {
+          name: 'mediaName',
+          type: 'text',
+          required: true,
+        },
+        {
+          name: 'link',
+          type: 'text',
+          required: true,
+        },
+      ],
     },
     {
       name: 'gallery',

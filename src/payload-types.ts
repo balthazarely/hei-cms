@@ -178,6 +178,19 @@ export interface Project {
   location?: string | null;
   tagline?: string | null;
   heroImage: number | Media;
+  logo?: (number | null) | Media;
+  /**
+   * e.g. "2021"
+   */
+  completedDate?: string | null;
+  /**
+   * e.g. "63,000 Sq. Ft."
+   */
+  size?: string | null;
+  /**
+   * e.g. "Redevelopment"
+   */
+  projectType?: string | null;
   showSidePanel?: boolean | null;
   description?: {
     root: {
@@ -194,6 +207,20 @@ export interface Project {
     };
     [k: string]: unknown;
   } | null;
+  awards?:
+    | {
+        awardName: string;
+        link?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  media?:
+    | {
+        mediaName: string;
+        link: string;
+        id?: string | null;
+      }[]
+    | null;
   gallery?:
     | {
         image: number | Media;
@@ -338,8 +365,26 @@ export interface ProjectsSelect<T extends boolean = true> {
   location?: T;
   tagline?: T;
   heroImage?: T;
+  logo?: T;
+  completedDate?: T;
+  size?: T;
+  projectType?: T;
   showSidePanel?: T;
   description?: T;
+  awards?:
+    | T
+    | {
+        awardName?: T;
+        link?: T;
+        id?: T;
+      };
+  media?:
+    | T
+    | {
+        mediaName?: T;
+        link?: T;
+        id?: T;
+      };
   gallery?:
     | T
     | {
