@@ -29,6 +29,7 @@ export const Projects: CollectionConfig = {
       required: true,
       options: [
         { label: 'Consulting', value: 'consulting' },
+        { label: 'Development', value: 'development' },
         { label: 'Redevelopment', value: 'redevelopment' },
         { label: 'Renewable Energy', value: 'renewable-energy' },
       ],
