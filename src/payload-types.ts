@@ -174,7 +174,7 @@ export interface Project {
    * URL path segment, e.g. "bank-lofts"
    */
   slug: string;
-  type: 'consulting' | 'development' | 'investment';
+  type: 'consulting' | 'redevelopment' | 'renewable-energy';
   location?: string | null;
   tagline?: string | null;
   heroImage: number | Media;
