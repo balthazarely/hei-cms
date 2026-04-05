@@ -36,9 +36,8 @@ export default buildConfig({
     s3Storage({
       collections: {
         media: {
-          prefix: 'media',
-          generateFileURL: ({ filename, prefix }) =>
-            `${process.env.S3_BASE_URL}/${prefix ? `${prefix}/` : ''}${filename}`,
+          generateFileURL: ({ filename }) =>
+            `${process.env.S3_BASE_URL}/${filename}`,
         },
       },
       bucket: process.env.S3_BUCKET || '',
