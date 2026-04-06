@@ -12,6 +12,7 @@ import { Projects } from './collections/Projects'
 import { AboutPage } from './globals/AboutPage'
 import { CategoryPages } from './globals/CategoryPages'
 import { HomePage } from './globals/HomePage'
+import { SiteSettings } from './globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +25,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Projects],
-  globals: [AboutPage, CategoryPages, HomePage],
+  globals: [AboutPage, CategoryPages, HomePage, SiteSettings],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
