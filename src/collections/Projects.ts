@@ -49,6 +49,14 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'thumbnail',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        description: 'Card image used on the /all-projects listing page',
+      },
+    },
+    {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',

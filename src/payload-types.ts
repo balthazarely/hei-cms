@@ -184,6 +184,10 @@ export interface Project {
   location?: string | null;
   tagline?: string | null;
   heroImage: number | Media;
+  /**
+   * Card image used on the /all-projects listing page
+   */
+  thumbnail?: (number | null) | Media;
   logo?: (number | null) | Media;
   /**
    * e.g. "2021"
@@ -371,6 +375,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   location?: T;
   tagline?: T;
   heroImage?: T;
+  thumbnail?: T;
   logo?: T;
   completedDate?: T;
   size?: T;
