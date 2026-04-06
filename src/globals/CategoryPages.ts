@@ -7,6 +7,19 @@ export const CategoryPages: GlobalConfig = {
   },
   fields: [
     {
+      name: 'allProjects',
+      type: 'group',
+      label: 'All Projects',
+      fields: [
+        {
+          name: 'heroImage',
+          type: 'upload',
+          relationTo: 'media',
+          required: true,
+        },
+      ],
+    },
+    {
       name: 'redevelopment',
       type: 'group',
       label: 'Redevelopment',

@@ -91,10 +91,12 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'about-page': AboutPage;
+    'category-pages': CategoryPage;
     'home-page': HomePage;
   };
   globalsSelect: {
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'category-pages': CategoryPagesSelect<false> | CategoryPagesSelect<true>;
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
   };
   locale: null;
@@ -509,6 +511,27 @@ export interface AboutPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "category-pages".
+ */
+export interface CategoryPage {
+  id: number;
+  allProjects: {
+    heroImage: number | Media;
+  };
+  redevelopment: {
+    heroImage: number | Media;
+  };
+  consulting: {
+    heroImage: number | Media;
+  };
+  renewableEnergy: {
+    heroImage: number | Media;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "home-page".
  */
 export interface HomePage {
@@ -572,6 +595,35 @@ export interface AboutPageSelect<T extends boolean = true> {
     | {
         title?: T;
         description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "category-pages_select".
+ */
+export interface CategoryPagesSelect<T extends boolean = true> {
+  allProjects?:
+    | T
+    | {
+        heroImage?: T;
+      };
+  redevelopment?:
+    | T
+    | {
+        heroImage?: T;
+      };
+  consulting?:
+    | T
+    | {
+        heroImage?: T;
+      };
+  renewableEnergy?:
+    | T
+    | {
+        heroImage?: T;
       };
   updatedAt?: T;
   createdAt?: T;
