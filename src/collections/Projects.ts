@@ -15,6 +15,13 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'order',
+      type: 'number',
+      admin: {
+        description: 'Display order in project grids — lower numbers appear first',
+      },
+    },
+    {
       name: 'slug',
       type: 'text',
       required: true,
