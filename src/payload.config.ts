@@ -10,6 +10,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Projects } from './collections/Projects'
 import { AboutPage } from './globals/AboutPage'
+import { CategoryPages } from './globals/CategoryPages'
 import { HomePage } from './globals/HomePage'
 
 const filename = fileURLToPath(import.meta.url)
@@ -23,7 +24,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Projects],
-  globals: [AboutPage, HomePage],
+  globals: [AboutPage, CategoryPages, HomePage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

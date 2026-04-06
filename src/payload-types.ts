@@ -177,6 +177,10 @@ export interface Project {
   id: number;
   title: string;
   /**
+   * Display order in project grids — lower numbers appear first
+   */
+  order?: number | null;
+  /**
    * URL path segment, e.g. "bank-lofts"
    */
   slug: string;
@@ -370,6 +374,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface ProjectsSelect<T extends boolean = true> {
   title?: T;
+  order?: T;
   slug?: T;
   type?: T;
   location?: T;
