@@ -91,9 +91,11 @@ export interface Config {
   fallbackLocale: null;
   globals: {
     'about-page': AboutPage;
+    'home-page': HomePage;
   };
   globalsSelect: {
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
+    'home-page': HomePageSelect<false> | HomePageSelect<true>;
   };
   locale: null;
   widgets: {
@@ -497,6 +499,48 @@ export interface AboutPage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page".
+ */
+export interface HomePage {
+  id: number;
+  hero: {
+    image: number | Media;
+    eyebrow?: string | null;
+    heading: string;
+    ctaLabel?: string | null;
+    ctaLink?: string | null;
+  };
+  mission: {
+    statement: string;
+  };
+  about: {
+    image: number | Media;
+    heading: string;
+    body: string;
+  };
+  portfolio?: {
+    categories?:
+      | {
+          image: number | Media;
+          heading: string;
+          body: string;
+          /**
+           * e.g. "/categories/redevelopment"
+           */
+          link: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-page_select".
  */
 export interface AboutPageSelect<T extends boolean = true> {
@@ -512,6 +556,55 @@ export interface AboutPageSelect<T extends boolean = true> {
         bio?: T;
         linkedInLink?: T;
         id?: T;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-page_select".
+ */
+export interface HomePageSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        image?: T;
+        eyebrow?: T;
+        heading?: T;
+        ctaLabel?: T;
+        ctaLink?: T;
+      };
+  mission?:
+    | T
+    | {
+        statement?: T;
+      };
+  about?:
+    | T
+    | {
+        image?: T;
+        heading?: T;
+        body?: T;
+      };
+  portfolio?:
+    | T
+    | {
+        categories?:
+          | T
+          | {
+              image?: T;
+              heading?: T;
+              body?: T;
+              link?: T;
+              id?: T;
+            };
       };
   meta?:
     | T
