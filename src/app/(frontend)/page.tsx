@@ -15,17 +15,13 @@ export default async function HomePage() {
 
   const fileURL = `vscode://file/${fileURLToPath(import.meta.url)}`
 
+  const logoSrc = '/hei-logo-inversed.svg'
+
   return (
     <div className="home">
       <div className="content">
         <picture>
-          <source srcSet="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg" />
-          <Image
-            alt="Payload Logo"
-            height={65}
-            src="https://raw.githubusercontent.com/payloadcms/payload/main/packages/ui/src/assets/payload-favicon.svg"
-            width={65}
-          />
+          <Image width={300} height={100} src={logoSrc} className="w-48" alt="hei-logo" />
         </picture>
         {!user && <h1>Welcome to HEI.</h1>}
         {user && <h1>Welcome back, {user.email}</h1>}
@@ -38,22 +34,9 @@ export default async function HomePage() {
           >
             Go to admin panel
           </a>
-          <a
-            className="docs"
-            href="https://payloadcms.com/docs"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Documentation
-          </a>
         </div>
       </div>
-      <div className="footer">
-        <p>Update this page by editing</p>
-        <a className="codeLink" href={fileURL}>
-          <code>app/(frontend)/page.tsx</code>
-        </a>
-      </div>
+      <div className="footer"></div>
     </div>
   )
 }

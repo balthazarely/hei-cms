@@ -93,13 +93,11 @@ export interface Config {
     'about-page': AboutPage;
     'category-pages': CategoryPage;
     'home-page': HomePage;
-    'site-settings': SiteSetting;
   };
   globalsSelect: {
     'about-page': AboutPageSelect<false> | AboutPageSelect<true>;
     'category-pages': CategoryPagesSelect<false> | CategoryPagesSelect<true>;
     'home-page': HomePageSelect<false> | HomePageSelect<true>;
-    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
   };
   locale: null;
   widgets: {
@@ -576,19 +574,6 @@ export interface HomePage {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "site-settings".
- */
-export interface SiteSetting {
-  id: number;
-  /**
-   * Main site logo displayed in the header
-   */
-  logo: number | Media;
-  updatedAt?: string | null;
-  createdAt?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "about-page_select".
  */
 export interface AboutPageSelect<T extends boolean = true> {
@@ -689,16 +674,6 @@ export interface HomePageSelect<T extends boolean = true> {
         title?: T;
         description?: T;
       };
-  updatedAt?: T;
-  createdAt?: T;
-  globalType?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "site-settings_select".
- */
-export interface SiteSettingsSelect<T extends boolean = true> {
-  logo?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

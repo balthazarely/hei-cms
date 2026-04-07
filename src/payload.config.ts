@@ -12,7 +12,6 @@ import { Projects } from './collections/Projects'
 import { AboutPage } from './globals/AboutPage'
 import { CategoryPages } from './globals/CategoryPages'
 import { HomePage } from './globals/HomePage'
-import { SiteSettings } from './globals/SiteSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,9 +22,16 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      graphics: {
+        Logo: '@/components/Logo#Logo',
+        Icon: '@/components/Logo#Icon',
+      },
+      afterDashboard: ['@/components/DashboardDescription#DashboardDescription'],
+    },
   },
   collections: [Users, Media, Projects],
-  globals: [AboutPage, CategoryPages, HomePage, SiteSettings],
+  globals: [AboutPage, CategoryPages, HomePage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
