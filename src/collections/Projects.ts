@@ -56,6 +56,14 @@ export const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: 'fullHeroHeight',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Show full hero image height on project page',
+      },
+    },
+    {
       name: 'thumbnail',
       type: 'upload',
       relationTo: 'media',

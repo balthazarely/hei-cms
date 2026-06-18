@@ -191,6 +191,10 @@ export interface Project {
   tagline?: string | null;
   heroImage: number | Media;
   /**
+   * Show full hero image height on project page
+   */
+  fullHeroHeight?: boolean | null;
+  /**
    * Card image used on the /all-projects listing page
    */
   thumbnail?: (number | null) | Media;
@@ -382,6 +386,7 @@ export interface ProjectsSelect<T extends boolean = true> {
   location?: T;
   tagline?: T;
   heroImage?: T;
+  fullHeroHeight?: T;
   thumbnail?: T;
   logo?: T;
   completedDate?: T;
